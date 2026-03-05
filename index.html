@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Winspot24 | MacBook Neo Lottery</title>
+    <meta
+      name="description"
+      content="Winspot24: розыгрыш нового MacBook Neo. 100 билетов по 10 USDT (ERC-20)."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-top"></div>
+    <div class="ambient ambient-bottom"></div>
+
+    <header class="site-header">
+      <a class="logo" href="#">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">winspot24</span>
+      </a>
+      <button id="walletButton" class="ghost-button" type="button">Connect Wallet</button>
+    </header>
+
+    <main class="container">
+      <section class="hero reveal">
+        <p class="eyebrow">WINSPOT24 · USDT ERC-20</p>
+        <h1 id="heroTitle">Розыгрыш нового MacBook Neo</h1>
+        <p class="hero-subtitle">
+          Закрытый раунд на <strong>100 билетов</strong>. Стоимость билета
+          <strong>$10 USDT</strong>. После sold-out система выбирает 1 победителя.
+        </p>
+        <p class="hero-note" id="heroNote">100 билетов · $10 · Приз: MacBook Neo</p>
+
+        <div class="hero-metrics">
+          <article class="metric">
+            <p class="metric-label">Цена билета</p>
+            <p class="metric-value"><span id="ticketPrice">$10</span> <span id="ticketCurrency">USDT</span></p>
+          </article>
+          <article class="metric">
+            <p class="metric-label">Продано</p>
+            <p class="metric-value"><span id="ticketsSold">0</span> / <span id="ticketsTotal">100</span></p>
+          </article>
+          <article class="metric">
+            <p class="metric-label">Осталось</p>
+            <p class="metric-value"><span id="ticketsRemaining">100</span></p>
+          </article>
+          <article class="metric">
+            <p class="metric-label">Призовой пул</p>
+            <p class="metric-value"><span id="poolValue">$0</span> USDT</p>
+          </article>
+        </div>
+
+        <div class="progress-block">
+          <div class="progress-header">
+            <span id="progressText">Продано 0 из 100 билетов</span>
+            <span id="roundLabel">Раунд #1</span>
+          </div>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid reveal">
+        <article class="card purchase-card">
+          <h2>Купить билеты</h2>
+          <p class="card-copy">
+            Оплата в <strong>USDT (ERC-20)</strong>. Билеты выпускаются последовательно от #001 до
+            #100.
+          </p>
+          <form id="purchaseForm" class="purchase-form">
+            <label for="ticketCount">Количество билетов</label>
+            <div class="control-row">
+              <input id="ticketCount" name="ticketCount" type="number" min="1" max="20" value="1" />
+              <button id="purchaseButton" class="primary-button" type="submit">Купить билеты</button>
+            </div>
+            <p class="hint" id="purchaseHint">Итог: $10 USDT</p>
+            <p class="hint secondary">Осталось билетов: <span id="remainingInline">100</span></p>
+          </form>
+          <div id="ticketList" class="ticket-list empty">Покупок пока нет.</div>
+        </article>
+
+        <article class="card draw-card">
+          <h2>Розыгрыш приза</h2>
+          <p class="card-copy" id="drawRule">Розыгрыш доступен только после продажи 100/100 билетов.</p>
+          <button id="drawButton" class="primary-button" type="button">Провести розыгрыш</button>
+          <div id="drawResult" class="draw-result">
+            <p>Ожидаем продажи всех билетов.</p>
+          </div>
+          <h3>История раундов</h3>
+          <div id="historyList" class="history-list empty">История пуста.</div>
+        </article>
+      </section>
+
+      <section class="card config-card reveal">
+        <h2>Blockchain Config</h2>
+        <div class="config-grid">
+          <div>
+            <p class="config-label">Сеть</p>
+            <p class="config-value" id="chainName">-</p>
+          </div>
+          <div>
+            <p class="config-label">Токен</p>
+            <p class="config-value" id="tokenName">-</p>
+          </div>
+          <div>
+            <p class="config-label">Контракт</p>
+            <p class="config-value mono" id="contractAddress">-</p>
+          </div>
+          <div>
+            <p class="config-label">Wallet статус</p>
+            <p class="config-value" id="walletStatus">Disconnected</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Winspot24 • MacBook Neo Lottery MVP • 2026</p>
+    </footer>
+
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
